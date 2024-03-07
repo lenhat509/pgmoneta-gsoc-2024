@@ -198,6 +198,7 @@ struct server
    char wal_slot[MISC_LENGTH];         /**< The WAL slot name */
    char current_wal_filename[MISC_LENGTH]; /**< The current WAL filename*/
    char follow[MISC_LENGTH];           /**< Follow a server */
+   char pgmoneta_current_wal_lsn[MISC_LENGTH];   /**< The current WAL log sequence number*/
    int retention_days;                 /**< The retention days for the server */
    int retention_weeks;                /**< The retention weeks for the server */
    int retention_months;               /**< The retention months for the server */

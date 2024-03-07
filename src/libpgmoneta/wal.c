@@ -175,6 +175,9 @@ pgmoneta_wal(int srv, char** argv)
       {
          goto error;
       }
+      // Assign the current xlogpos to LSN
+      memset(config->servers[srv].pgmoneta_current_wal_lsn, 0, MISC_LENGTH);
+      snprintf(config->servers[srv].pgmoneta_current_wal_lsn, MISC_LENGTH, "%s", xlogpos);
       free(xlogpos);
       xlogpos = NULL;
    }
@@ -424,6 +427,9 @@ pgmoneta_wal(int srv, char** argv)
       {
          goto error;
       }
+      // Assign the current xlogpos to LSN
+      memset(config->servers[srv].pgmoneta_current_wal_lsn, 0, MISC_LENGTH);
+      snprintf(config->servers[srv].pgmoneta_current_wal_lsn, MISC_LENGTH, "%s", xlogpos);
       xlogpos = NULL;
       // receive the last command complete message
       msg->kind = '\0';
